@@ -1,0 +1,18 @@
+<%- include('../partial/header') %>
+
+<body>
+    <h2>Treats Page</h2>
+
+
+    <ul>
+
+        <% for(let treat of treats){ %>
+            <li style="list-style-type: none;">
+                <h3> <%= treat.name %> - <a href="/edibletreats/<%= treat._id %>">select</a> </h3>
+            </li>
+        <% }; %>
+
+    
+    </ul>
+</body>
+</html>
