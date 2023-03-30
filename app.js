@@ -3,6 +3,7 @@ const path = require('path');
 const methodOverride = require('method-override');
 const mongoose = require('mongoose');
 const Edible = require("./models/edibleDelights");
+const ejsMate = require('ejs-mate');
 
 mongoose.connect('mongodb://localhost:27017/edibleDelights', {
     useNewUrlParser: true,
@@ -17,6 +18,7 @@ db.once("open", () => {
 
 const app = express();
 
+app.engine('ejs', ejsMate);
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
@@ -27,7 +29,7 @@ app.use(express.json());
 app.get('/', (req, res) => {
     console.log('This is the "/" root page');
     // res.send("Hello Edible");
-    res.render('home');
+    res.render('treats/home');
 })
 
 // app.get('/edibletreats', async (req, res) => {
