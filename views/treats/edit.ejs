@@ -1,34 +1,37 @@
 <%- include('../partial/header') %>
-
 <body>
-    <div class="container">
-        <h2>Create A Treat</h2>
-    
-        <form action="/edibletreats" method="post">
+    <div class="container pt-2">
+        <h2>Edit Page</h2>
+
+        <form action="/edibletreat/<%= treat._id %>?_method=PUT" method="post">
             <div class="mx-5">
                 <div class="mb-3">
                     <label for="treatName" class="form-label">Name of Treat: </label>
-                    <input type="text"  class="form-control" name="name" placeholder="">
+                    <input type="text" class="form-control" name="name" value="<%= treat.name %>">
                 </div>
                 <div class="mb-3">
                     <label for="treatType" class="form-label">Type of Treat: </label>
-                    <input type="text"  class="form-control" name="category" placeholder="">
+                    <input type="text" class="form-control" name="category" value="<%= treat.category %>">
                 </div>
                 <div class="mb-3">
                     <label for="treatPrice" class="form-label">Price of Treat: </label>
-                    <input type="text" class="form-control" name="price" placeholder="">
+                    <input type="text" class="form-control" name="price" value="<%= treat.price %>">
                 </div>
-    
+        
                 <div class="mb-3">
                     <label for="treatDiscription" class="form-label"> A Discription of This Treat: </label>
                     <br>
-                    <textarea class="form-control" name="discription" id="treatDiscription" cols="30" rows="10"></textarea>
+                    <textarea class="form-control" name="discription" id="treatDiscription" cols="30" rows="10"><%= treat.discription %></textarea>
                 </div>
                 <div class="d-grid mx-5 mt-3">
-                    <button class="btn btn-primary">Submit</button>
+                    <button class="btn btn-primary">Update</button>
                 </div>
             </div>
         </form>
+
+        <div class="mt-3">
+            <a href="/edibletreat/<%= treat._id %>">back to edible</a>
+        </div>
     </div>
 </body>
 </html>

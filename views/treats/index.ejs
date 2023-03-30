@@ -1,18 +1,27 @@
 <%- include('../partial/header') %>
 
 <body>
-    <h2>Treats Page</h2>
+    <div class="container pt-2">
+        <div style="display: flex; justify-content:space-between;">
+            <h2>Treats Page</h2>
+            <div><a href="/createtreat/new">make a treat</a></div>
+        </div>
 
+        <ul>
+        
+            <% for(let treat of treats){ %>
+                <li style="list-style-type: none;">
+                    <h3>
+                        <%= treat.name %> - <a href="/edibletreat/<%= treat._id %>">select</a>
+                    </h3>
 
-    <ul>
-
-        <% for(let treat of treats){ %>
-            <li style="list-style-type: none;">
-                <h3> <%= treat.name %> - <a href="/edibletreats/<%= treat._id %>">select</a> </h3>
-            </li>
-        <% }; %>
-
+                </li>
+                <% }; %>
+        
+        
+        </ul>
+    </div>
     
-    </ul>
+
 </body>
 </html>

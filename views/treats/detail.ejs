@@ -1,10 +1,24 @@
 <%- include('../partial/header') %>
 
 <body>
-    <h2>Detail Treat</h2>
-
-    <h3><%= treat.name  %></h3>
-    <h4><%= treat.price %></h4>
-    <p><%= treat.discription %></p>
+    <div class="container">
+        <h2>Detail Treat</h2>
+    
+        <h3><%= treat.name  %></h3>
+        <h4><%= treat.price %></h4>
+        <p><%= treat.discription %></p>
+    
+        
+        <div style="display: flex; justify-content: space-between">
+            <a href="/edibletreat/<%= treat._id %>/edit">edit edible</a>
+            <form action="/edibletreat/<%= treat._id %>?_method=DELETE" method="post">
+                <button class="btn btn-primary">Delete</button>
+            </form>
+        </div>
+            
+        <footer>
+            <a href="/edibletreats">all treats</a>
+        </footer>
+    </div>
 </body>
 </html>
